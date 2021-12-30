@@ -5,8 +5,9 @@ import App from './components/App';
 
 
 let data = [
-    {id: '-1', content:'默认数据', complete: false},
-
+    {id: '1', content:'吃饭', complete: false},
+    {id: '2', content:'睡觉', complete: false},
+    {id: '3', content:'打豆豆', complete: false},
 ];
 
 ReactDOM.render(<App data={data}/>, document.getElementById('root'));
