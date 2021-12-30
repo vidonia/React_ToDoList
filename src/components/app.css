@@ -1,0 +1,19 @@
+
+.form_content {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: top;
+    background-color: blue;
+    align-items: center;
+};
+
+.form_input {
+    border-style: solid;
+
+    width: 200px;
+    height: 100px;
+}; 
+
+input {
+    background-color: aquamarine;
+}
