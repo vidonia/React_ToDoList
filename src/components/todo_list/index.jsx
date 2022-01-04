@@ -16,6 +16,7 @@ export default class ToDoList extends PureComponent {
     };
 
     completeList = []
+    doAll = false;
 
     todoListAddItem = (content) => {
         let list = this.state.todo_list;
@@ -26,21 +27,46 @@ export default class ToDoList extends PureComponent {
         });
     };
 
+    deleteTodoItem = (item) => {
+        console.log(item.content);
+        let list = this.state.todo_list;
+        list.pop(item);
+        this.setState({
+            todo_list:list,
+        }); 
+    };
+
     todoListSelectItem = (item) => {
         console.log(item.complete);
-        if (this.completeList.includes(item) == false) {
-            this.completeList.push(item);
-        } else {
-            this.completeList.pop(item);
-        }
+        // if (this.completeList.includes(item) == false) {
+        //     this.completeList.push(item);
+        // } else {
+        //     this.completeList.pop(item);
+        //     if (this.completeList.length == this.state.todo_list.length) {
+        //         this.doAll = true;
+        //     }
+        // }
 
+        // let list = this.state.todo_list;
+
+        // for (const index in list) {
+        //     const tmp = list[index];
+        //     console.log(tmp.content, tmp.complete);
+        // }
+
+        // this.setState({
+        //     todo_list: list,
+        // });
+    };
+
+    todoListComplete = () => {
+        console.log(this.doAll);
         let list = this.state.todo_list;
-        
-        for (const index in list) {
-            const tmp = list[index];
-            console.log(tmp.content, tmp.complete);
+        for (const item of list) {
+            item.complete = !this.doAll;
         }
-
+        this.doAll = !this.doAll;
+        this.completeList = [...list];
         this.setState({
             todo_list: list,
         });
@@ -50,8 +76,12 @@ export default class ToDoList extends PureComponent {
         return (
             <div>
                 <Header todoListAddItem={this.todoListAddItem}/>
-                <List todoList={this.state.todo_list} todoListSelectItem={this.todoListSelectItem}/>
-                <Footer />
+                <List 
+                todoList={this.state.todo_list} 
+                todoListSelectItem={this.todoListSelectItem}
+                deleteTodoItem={this.deleteTodoItem}
+                />
+                <Footer todoListComplete={this.todoListComplete}/>
             </div>
         )
     }

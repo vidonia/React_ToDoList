@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 
 export default class Footer extends Component {
+    handleAllDoClick = (event) => {
+        this.props.todoListComplete();
+    };
     render() {
         return (
             <div>
-                <h1>hhh</h1>
+                <button className='todo_list_button' style={{width:70}} onClick={this.handleAllDoClick}>全选</button>
             </div>
         )
     }
