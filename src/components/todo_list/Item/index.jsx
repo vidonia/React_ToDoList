@@ -1,42 +1,55 @@
 
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Item(props) {
-
-    const handleItemClick = (event) => {
-        props.todoListSelectItem({
-            ...props.item,
-            complete: event.target.checked,
-        });
-    }
-
-    const handleDeleteClick = () => {
-        props.deleteTodoItem(props.item);
+export default class Item extends Component {
+  
+    state = {
+        item: this.props.item,
     };
 
-    return (
-        <li className='item_content'>
-            <label >
-                <input 
-                type="checkbox" 
-                defaultChecked={props.item.complete} 
-                onChange={handleItemClick}
-                />
-                <span 
-                style={{
-                    paddingLeft:10, 
-                    textDecoration:props.item.complete?"line-through":"none",
-                    }}>
-                        {props.item.content}
-                        </span>
-            </label>
-            <button 
-            className='item_delete_btn-todo_list_button' 
-            style={{display:props.item.complete?"block":"none"}} 
-            onClick={handleDeleteClick}>
-                删除
-                </button>
-        </li>
-    )
+    handleItemClick = (event) => {
+        this.props.updateTodo(this.state.item.id, event.target.checked);
+    }
+
+    handleDeleteClick = () => {
+        this.props.deleteTodoItem(this.state.item.id);
+    };
+
+    handleMouse = (mouse) => {
+         console.log(mouse);
+    };
+
+    render() {
+        const {item} = this.props;
+        const {complete, content,} = item;
+        return (
+            <li className='item_content' 
+            onMouseMove={()=>this.handleMouse(true)} 
+            onMouseLeave={()=>this.handleMouse(false)}
+            >
+                <label >
+                    <input 
+                    type="checkbox" 
+                    defaultChecked={complete} 
+                    onChange={this.handleItemClick}
+                    />
+                    <span 
+                    style={{
+                        paddingLeft:10, 
+                        textDecoration:complete?"line-through":"none",
+                        }}>
+                            {content}
+                            </span>
+                </label>
+                <button 
+                className='item_delete_btn-todo_list_button' 
+                style={{display:complete?"block":"none"}} 
+                onClick={this.handleDeleteClick}>
+                    删除
+                    </button>
+            </li>
+        )
+    }
 }
+
 

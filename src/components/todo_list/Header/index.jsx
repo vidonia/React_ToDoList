@@ -11,7 +11,7 @@ export default class Header extends PureComponent {
             return;
         }
         this.item_ref.current.value = '';
-        this.props.todoListAddItem(input_content);
+        this.props.addTodo(input_content);
     };
     render() {
         return (

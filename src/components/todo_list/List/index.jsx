@@ -3,13 +3,14 @@ import React, { PureComponent } from 'react'
 import Item from '../Item';
 export default class List extends PureComponent {
     render() {
+        const {todoList, updateTodo, deleteTodoItem} = this.props;
         const items = 
-        this.props.todoList.map(item => 
+        todoList.map(item => 
         <Item 
-        key={item.id+item.complete} 
+        key={item.id} 
         item={item} 
-        todoListSelectItem={this.props.todoListSelectItem}
-        deleteTodoItem={this.props.deleteTodoItem}
+        updateTodo={updateTodo}
+        deleteTodoItem={deleteTodoItem}
         />);
         return (
             <ul className='todo_list'>{items}</ul>

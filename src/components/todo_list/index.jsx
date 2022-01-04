@@ -15,51 +15,51 @@ export default class ToDoList extends PureComponent {
         ],
     };
 
-    completeList = []
-    doAll = false;
+    todoAll = false;
 
-    todoListAddItem = (content) => {
+    addTodo = (content) => {
         let list = this.state.todo_list;
         const item = {id:list.length+1, content:content, complete:false};
-        list = [item,...list];
+        list = [item, ...list];
         this.setState({
             todo_list: list,
         });
     };
 
-    deleteTodoItem = (item) => {
-        console.log(item.content);
-        let list = this.state.todo_list;
-        list.pop(item);
+    updateTodo = (id, complete) => {
+        const {todo_list} = this.state;
+        const updateList = todo_list.map((value) => {
+            if (id === value.id) {
+                return {...value, complete}
+            } else {
+                return value;
+            }
+        });
+
         this.setState({
-            todo_list:list,
-        }); 
+            todo_list: updateList,
+        });
     };
 
-    todoListSelectItem = (item) => {
-        const index = this.completeList.findIndex((v) => v.id === item.id);
-        if (index !== undefined) {
-            this.completeList.push(item);
-        } else {
-            this.completeList.splice(index, 1);
-        }
-
-        const list = [...this.state.todo_list];
-        const todoIndex = this.state.todo_list.findIndex((v) => v.id === item.id);
-        list[todoIndex] = item;
-
+    deleteTodoItem = (id) => {
+        let todo_list = []
+        this.state.todo_list.forEach((value)=>{
+            if (value.id !== id) {
+                return todo_list.push(value);
+            }
+        });
         this.setState({
-            todo_list: list,
+            todo_list: todo_list,
         });
     };
 
     render() {
         return (
             <div>
-                <Header todoListAddItem={this.todoListAddItem}/>
+                <Header addTodo={this.addTodo}/>
                 <List 
                 todoList={this.state.todo_list} 
-                todoListSelectItem={this.todoListSelectItem}
+                updateTodo={this.updateTodo}
                 deleteTodoItem={this.deleteTodoItem}
                 />
                 <Footer todoListComplete={this.todoListComplete}/>
