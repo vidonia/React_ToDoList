@@ -1,30 +1,42 @@
 
-import React, { PureComponent } from 'react'
+import React from 'react'
 
-export default class Item extends PureComponent {
-    state = {
-        item: this.props.item,
-    };
+export default function Item(props) {
 
-    handleItemClick = (event) => {
-        let item = this.state.item;
-        item.complete = event.target.checked;
-        this.props.todoListSelectItem(item);
+    const handleItemClick = (event) => {
+        props.todoListSelectItem({
+            ...props.item,
+            complete: event.target.checked,
+        });
     }
 
-    handleDeleteClick = (event) => {
-        this.props.deleteTodoItem(this.state.item);
+    const handleDeleteClick = () => {
+        props.deleteTodoItem(props.item);
     };
 
-    render() {
-        return (
-            <li className='item_content'>
-                <label >
-                    <input type="checkbox" defaultChecked={this.state.item.complete} onChange={this.handleItemClick}/>
-                    <span style={{paddingLeft:10, textDecoration:this.state.item.complete?"line-through":"none",}}>{this.state.item.content}</span>
-                </label>
-                <button className='item_delete_btn-todo_list_button' style={{display:this.state.item.complete?"block":"none"}} onClick={this.handleDeleteClick}>删除</button>
-            </li>
-        )
-    }
+    return (
+        <li className='item_content'>
+            <label >
+                <input 
+                type="checkbox" 
+                defaultChecked={props.item.complete} 
+                onChange={handleItemClick}
+                />
+                <span 
+                style={{
+                    paddingLeft:10, 
+                    textDecoration:props.item.complete?"line-through":"none",
+                    }}>
+                        {props.item.content}
+                        </span>
+            </label>
+            <button 
+            className='item_delete_btn-todo_list_button' 
+            style={{display:props.item.complete?"block":"none"}} 
+            onClick={handleDeleteClick}>
+                删除
+                </button>
+        </li>
+    )
 }
+
