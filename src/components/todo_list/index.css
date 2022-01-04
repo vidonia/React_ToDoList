@@ -1,8 +1,9 @@
 
 .header_content {
     background-color: antiquewhite;
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 20px;
+    display: flex;
 }
 
 .header_input {
