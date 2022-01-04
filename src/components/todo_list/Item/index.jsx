@@ -3,9 +3,10 @@ import React, { PureComponent } from 'react'
 
 export default class Item extends PureComponent {
     handleItemClick = (event) => {
-        const item = this.props.item;
-        item.complete = event.target.checked;
-        this.props.todoListSelectItem(item);
+        this.props.todoListSelectItem({
+            ...this.props.item,
+            complete: event.target.checked,
+        });
     }
     
     render() {

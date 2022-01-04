@@ -27,19 +27,16 @@ export default class ToDoList extends PureComponent {
     };
 
     todoListSelectItem = (item) => {
-        console.log(item.complete);
-        if (this.completeList.includes(item) == false) {
+        const index = this.completeList.findIndex((v) => v.id === item.id);
+        if (index !== undefined) {
             this.completeList.push(item);
         } else {
-            this.completeList.pop(item);
+            this.completeList.splice(index, 1);
         }
 
-        let list = this.state.todo_list;
-        
-        for (const index in list) {
-            const tmp = list[index];
-            console.log(tmp.content, tmp.complete);
-        }
+        const list = [...this.state.todo_list];
+        const todoIndex = this.state.todo_list.findIndex((v) => v.id === item.id);
+        list[todoIndex] = item;
 
         this.setState({
             todo_list: list,
