@@ -13,15 +13,18 @@ export default class SearchDemo extends Component {
                 const data = result.data;
                 const hhh = data[1];
                 const children = hhh.children;
-                console.log(children);
-                this.setState({
-                    children: children
-                });
+                this.saveChildren(children);
             },
         );
     }
+    saveChildren = (children) => {
+        console.log(children);
+        this.setState({
+            children: children
+        });
+    };
     searchAction = (input_content) => {
-        
+         
     };
 
     itemSelected = (item) => {
