@@ -11,7 +11,8 @@ export default class SearchResultList extends PureComponent {
     render() {
         const {list} = this.state
         const items = list.map((item)=>{
-            return <SearchItem item={item}/>
+            console.log(item.id);
+            return <SearchItem key={item.id} item={item}/>
         });
         return (
             <div className='search_list'>

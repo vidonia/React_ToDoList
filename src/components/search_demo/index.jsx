@@ -2,10 +2,26 @@ import React, { Component } from 'react'
 import SearchHeader from './Search'
 import SearchResultList from './List';
 import './index.css'
+import axios from 'axios';
 
 export default class SearchDemo extends Component {
+    state = {children: []};
+    componentDidMount() {
+        axios.get('https://api.yuantutech.com/user-web/restapi/common/personalCenter/all?unionId=29&indexChannel=1&main=true').then(
+            (response) => {
+                const result = response.data;
+                const data = result.data;
+                const hhh = data[1];
+                const children = hhh.children;
+                console.log(children);
+                this.setState({
+                    children: children
+                });
+            },
+        );
+    }
     searchAction = (input_content) => {
-        console.log(input_content);
+        
     };
 
     itemSelected = (item) => {
@@ -17,14 +33,7 @@ export default class SearchDemo extends Component {
             <div>
                 <SearchHeader searchAction={this.searchAction}/>
                 <SearchResultList 
-                results = {[
-                    {icon: "https://yuantu-hz-img.oss-cn-hangzhou.aliyuncs.com/b75d1bc32f67adbbbf8d9e205bbdb60f.png", name: 'test'}, 
-                    {icon: "https://yuantu-hz-img.oss-cn-hangzhou.aliyuncs.com/b75d1bc32f67adbbbf8d9e205bbdb60f.png", name: 'test'},
-                    {icon: "https://yuantu-hz-img.oss-cn-hangzhou.aliyuncs.com/b75d1bc32f67adbbbf8d9e205bbdb60f.png", name: 'test'},
-                    {icon: "https://yuantu-hz-img.oss-cn-hangzhou.aliyuncs.com/b75d1bc32f67adbbbf8d9e205bbdb60f.png", name: 'test'},
-                    {icon: "https://yuantu-hz-img.oss-cn-hangzhou.aliyuncs.com/b75d1bc32f67adbbbf8d9e205bbdb60f.png", name: 'test'},
-                    {icon: "https://yuantu-hz-img.oss-cn-hangzhou.aliyuncs.com/b75d1bc32f67adbbbf8d9e205bbdb60f.png", name: 'test'},
-            ]}
+                results = {this.state.children}
                 itemSelected={this.itemSelected}
                 />
             </div>

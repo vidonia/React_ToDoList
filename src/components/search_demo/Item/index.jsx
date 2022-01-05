@@ -12,8 +12,8 @@ export default class SearchItem extends Component {
         console.log(item);
         return (
             <div className='search_item_content'>
-                <img src={item.icon} alt="" className='search_item_content_img'/>
-                <p className='search_item_content_title'>{item.name}</p>
+                <img src={item.functionIcon} alt="not found" className='search_item_content_img'/>
+                <p className='search_item_content_title'>{item.functionName}</p>
             </div>
         )
     }
