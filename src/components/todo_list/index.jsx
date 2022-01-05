@@ -24,18 +24,22 @@ export default class ToDoList extends PureComponent {
         this.setState({
             todo_list: list,
         });
+        this.todoAll = false;
     };
 
     updateTodo = (id, complete) => {
         const {todo_list} = this.state;
+        let done = false;
         const updateList = todo_list.map((value) => {
             if (id === value.id) {
+                done = complete;
                 return {...value, complete}
             } else {
+                done = value.complete;
                 return value;
             }
         });
-        console.log(updateList);
+        this.todoAll = done;
         this.setState({
             todo_list: updateList,
         });
@@ -66,6 +70,12 @@ export default class ToDoList extends PureComponent {
         this.todoAll = !this.todoAll;
     };
 
+    todoListDelete = () => {
+         this.setState({
+             todo_list: [],
+         });
+    };
+
     render() {
         return (
             <div>
@@ -75,7 +85,10 @@ export default class ToDoList extends PureComponent {
                 updateTodo={this.updateTodo}
                 deleteTodoItem={this.deleteTodoItem}
                 />
-                <Footer todoListDone={this.todoListDone}/>
+                <Footer todoListDone={this.todoListDone} 
+                todoListDelete={this.todoListDelete}
+                todoListLength={this.state.todo_list.length}
+                />
             </div>
         )
     }

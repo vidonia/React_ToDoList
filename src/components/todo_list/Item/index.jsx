@@ -25,8 +25,8 @@ export default class Item extends Component {
     render() {
         return (
             <li className='item_content' 
-            // onMouseEnter={()=>this.handleMouse(true)} 
-            // onMouseLeave={()=>this.handleMouse(false)}
+            onMouseEnter={()=>this.handleMouse(true)} 
+            onMouseLeave={()=>this.handleMouse(false)}
             >
                 <label >
                     <input 
