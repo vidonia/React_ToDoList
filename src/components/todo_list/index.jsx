@@ -35,7 +35,7 @@ export default class ToDoList extends PureComponent {
                 return value;
             }
         });
-
+        console.log(updateList);
         this.setState({
             todo_list: updateList,
         });
@@ -53,6 +53,19 @@ export default class ToDoList extends PureComponent {
         });
     };
 
+    todoListDone = () => {
+        let list = []
+        this.state.todo_list.forEach((item)=>{
+            item.complete = !this.todoAll;
+            list.push(item);
+        });
+        this.setState({
+            todo_list: list,
+        });
+
+        this.todoAll = !this.todoAll;
+    };
+
     render() {
         return (
             <div>
@@ -62,7 +75,7 @@ export default class ToDoList extends PureComponent {
                 updateTodo={this.updateTodo}
                 deleteTodoItem={this.deleteTodoItem}
                 />
-                <Footer todoListComplete={this.todoListComplete}/>
+                <Footer todoListDone={this.todoListDone}/>
             </div>
         )
     }

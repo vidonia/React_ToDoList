@@ -7,7 +7,7 @@ export default class List extends PureComponent {
         const items = 
         todoList.map(item => 
         <Item 
-        key={item.id} 
+        key={item.id+item.complete} 
         item={item} 
         updateTodo={updateTodo}
         deleteTodoItem={deleteTodoItem}

@@ -5,6 +5,7 @@ export default class Item extends Component {
   
     state = {
         item: this.props.item,
+        onMouse: false
     };
 
     handleItemClick = (event) => {
@@ -16,34 +17,34 @@ export default class Item extends Component {
     };
 
     handleMouse = (mouse) => {
-         console.log(mouse);
+        this.setState({
+            onMouse: mouse,
+        });
     };
 
     render() {
-        const {item} = this.props;
-        const {complete, content,} = item;
         return (
             <li className='item_content' 
-            onMouseMove={()=>this.handleMouse(true)} 
-            onMouseLeave={()=>this.handleMouse(false)}
+            // onMouseEnter={()=>this.handleMouse(true)} 
+            // onMouseLeave={()=>this.handleMouse(false)}
             >
                 <label >
                     <input 
                     type="checkbox" 
-                    defaultChecked={complete} 
+                    defaultChecked={this.state.item.complete} 
                     onChange={this.handleItemClick}
                     />
                     <span 
                     style={{
                         paddingLeft:10, 
-                        textDecoration:complete?"line-through":"none",
+                        textDecoration:this.state.item.complete?"line-through":"none",
                         }}>
-                            {content}
+                            {this.state.item.content}
                             </span>
                 </label>
                 <button 
                 className='item_delete_btn-todo_list_button' 
-                style={{display:complete?"block":"none"}} 
+                style={{display:this.state.onMouse?"block":"none"}} 
                 onClick={this.handleDeleteClick}>
                     删除
                     </button>

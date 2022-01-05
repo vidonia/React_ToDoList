@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class Footer extends Component {
     handleAllDoClick = (event) => {
-        this.props.todoListComplete();
+        this.props.todoListDone();
     };
     render() {
         return (
