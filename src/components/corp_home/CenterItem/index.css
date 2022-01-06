@@ -1,28 +1,27 @@
 
 .crop_home_center_item {
     background-color: white;
-    /* height: 128px; */
     border-radius: 6px;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .crop_home_center_item_subitem {
-    background-color: yellow;
+    margin-top: 9px;
+    margin-bottom: 15px;
     width: 33.3333%;
+    text-align:center;
 }
 
 .crop_home_center_item_subitem_title {
     color: #323438;
     font-size: 16px;
     font-weight: bold;
-    background-color: aqua;
-    text-align: center;
 }
 
 .crop_home_center_item_subitem_subtitle {
+    margin-top: 2px;
     color: #A1A7B3;
     font-size: 12px;
     font-weight: normal;
-    background-color: blue;
-    text-align: center;
 }

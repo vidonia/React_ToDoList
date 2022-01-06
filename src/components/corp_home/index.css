@@ -6,3 +6,11 @@
     margin-left: 4%;
     margin-right: 4%;
 }
+
+.crop_home_item_title {
+    margin-left: 15px;
+    padding-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #323438;
+}

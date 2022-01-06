@@ -1,14 +1,19 @@
 
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './index.css'
 
 export default class CropHomeCenterItem extends Component {
+
+    static propTypes = {
+        items: PropTypes.array.isRequired,
+    }
+
     render() {
         const subitems = this.props.items.map((item)=>{
-            return <CropHomeCenterItemSubItem key={item}/>
+            return <CropHomeCenterItemSubItem key={item.title} item={item}/>
         });
         return (
-            
             <div className='crop_home_center_item'>
                 {subitems}
             </div>
@@ -18,12 +23,16 @@ export default class CropHomeCenterItem extends Component {
 
 
 class CropHomeCenterItemSubItem extends Component {
+    static propTypes = {
+        item: PropTypes.object.isRequired,
+    }
     render() {
+        const {title, subTitle, icon} = this.props.item;
         return (
             <div className='crop_home_center_item_subitem'>
-                <img src="https://front-images.oss-cn-hangzhou.aliyuncs.com/i4/fe48cb427d084f20ec78f1c95cbdfed4-180-180.png" alt="hhhhh" style={{width:64, height:64}}/>
-                <p className='crop_home_center_item_subitem_title'>预约挂号</p>
-                <p className='crop_home_center_item_subitem_subtitle'>线上快捷预约</p>
+                <img src={icon} alt="hhhhh" style={{width:64, height:64}}/>
+                <p className='crop_home_center_item_subitem_title'>{title}</p>
+                <p className='crop_home_center_item_subitem_subtitle'>{subTitle}</p>
             </div>
         );
     }

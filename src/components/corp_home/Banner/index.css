@@ -1,0 +1,8 @@
+
+.crop_home_banner {
+    background-color: white;
+    border-radius: 6px;
+    height: 24vw; /* 90/345x92vw */
+    width: 100%;
+    margin-bottom: 10px;
+}

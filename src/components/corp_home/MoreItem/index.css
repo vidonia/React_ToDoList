@@ -1,0 +1,26 @@
+
+.crop_home_more_item {
+    background-color: white;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.crop_home_item_body {
+    display: grid;
+    grid-template-columns: repeat(4, 25.0%);
+    grid-auto-flow: row;
+    margin-bottom: 2px;
+    margin-top: 20px;
+}
+
+.crop_home_more_item_subitem {
+    width: 100%;
+    text-align:center;
+}
+
+.crop_home_more_item_subitem_title {
+    color: #323438;
+    font-size: 13px;
+    margin-top: 4px;
+    background-color: aqua;
+}
