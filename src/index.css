@@ -1,4 +1,16 @@
-div {
+body {
     padding: 0px;
     margin: 0px;
+    background-color: #EEEFF3;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+}
+
+img {
+    padding: 0px;
+    margin: 0px;
+    background-color: blue;
 }
