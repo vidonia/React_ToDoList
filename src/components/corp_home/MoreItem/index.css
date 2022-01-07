@@ -16,6 +16,7 @@
 .crop_home_more_item_subitem {
     width: 100%;
     text-align:center;
+    position: relative;
 }
 
 .crop_home_more_item_subitem_title {

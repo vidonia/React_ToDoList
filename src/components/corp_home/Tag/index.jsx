@@ -23,8 +23,8 @@ export default function CropFunctionTag(props) {
     }
 
     return (
-        <div className='crop_item_tag' style={{background: color, }}>
+        <p className='crop_item_tag' style={{background: color, }}>
             {content}
-        </div>
+        </p>
     )
 }

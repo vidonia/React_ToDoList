@@ -2,10 +2,11 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 // import animationData from './src/lottie_corpHome_header.json'
+import crop_home_header from '../img/crop_home_header.png'
 
 export default class CropHomeHeader extends Component {
     state = {
-        height: 147,
+        height: "33.6vw",
         bannerList: [],
     };
     componentDidMount() {
@@ -35,9 +36,9 @@ export default class CropHomeHeader extends Component {
     }
     render() {
         return (
-            <div style={{height:this.state.height, backgroundColor: "blue"}}>
-                {this.state.bannerList.length > 0?<img src={this.state.bannerList[0].url} alt="" />:null}
-            </div>
+            <img src={crop_home_header} alt="" 
+            style={{height:this.state.height, backgroundColor: "blue", width: "100%", }}
+            />
         )
     }
 }
