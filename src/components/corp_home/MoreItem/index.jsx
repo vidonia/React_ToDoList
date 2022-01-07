@@ -21,9 +21,15 @@ export default class CropHomeMoreItem extends Component {
 
 class CropHomeMoreItemSubitem extends Component {
     render() {
-        const {title, icon} = this.props.item;
+        let {title, icon} = this.props.item;
+        const length = title.length;
+        // if (length > 4) {
+        //     const aa= 'fsdfsd';
+        //     aa.slice()
+        //     title = title.slice(4, title.length-4,'/\n');
+        // }
         return (
-            <div className='crop_home_more_item_subitem' style={{marginBottom:title.length<=4?20:15}}>
+            <div className='crop_home_more_item_subitem' style={{marginBottom:length<=4?20:15}}>
                 <img src={icon} alt="" style={{width:28, height:28}}/>
                 <p className='crop_home_more_item_subitem_title'>{title}</p>
             </div>

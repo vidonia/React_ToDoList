@@ -11,9 +11,9 @@ export default class CropHomeBottomItem extends Component {
             return <CropHomeBottomItemSubitem key={value.title} item={value}/>
         });
         return (
-            <div>
+            <div className='crop_home_bottom_item'>
                 <p className='crop_home_item_title'>{this.props.typeName}</p>
-                {subitems}
+                <div className='crop_home_bottom_item_content'>{subitems}</div>
             </div>
         )
     }
@@ -22,11 +22,14 @@ export default class CropHomeBottomItem extends Component {
 
 class CropHomeBottomItemSubitem extends Component {
     render() {
-        const {title, icon} = this.props.item;
+        const {title, icon, subTitle} = this.props.item;
         return (
-            <div>
-                <img src={icon} alt="" style={{width:50, height:50}}/>
-                <p>{title}</p>
+            <div className='crop_home_bottom_item_subitem'>
+                <div style={{marginLeft: 10, textOverflow: 'ellipsis'}}>
+                <p style={{fontSize: 16, color: '#323438', }}>{title}</p>
+                <p style={{fontSize: 12, color: '#A1A7B3', marginTop: 2}}>{subTitle}</p>
+                </div>
+                <img src={icon} alt="" style={{width:50, height:50, marginRight:9, marginLeft: 'auto'}}/>
             </div>
         )
     }

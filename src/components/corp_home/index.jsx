@@ -61,9 +61,9 @@ class CropHomeBody extends Component {
         });
         
         if (hasCenterItem === true && functionItems.length > 2) {
-            functionItems.splice(1, <CropHomeBanner key={'banner'}/>);
+            functionItems.splice(1, 0, <CropHomeBanner key={'banner'}/>);
         } else {
-            functionItems.splice(0, <CropHomeBanner key={'banner'} />);
+            functionItems.splice(0, 0, <CropHomeBanner key={'banner'} />);
         }
 
         return (
