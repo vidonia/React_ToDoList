@@ -11,7 +11,6 @@
 .crop_home_notice_logo {
     width: 25px;
     height: 25px;
-    background-color: blueviolet;
     margin-left: 15px;
 }
 
@@ -20,4 +19,14 @@
     width: 1px;
     height: 25px;
     margin-left: 10px;
+}
+
+.crop_home_item_tag {
+    height: 16px;
+    padding: 4px, 1px;
+    border-top-right-radius: 8px;
+    color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import CropFunctionTag from '../Tag'
 import './index.css'
 
 export default class CropHomeMoreItem extends Component {
@@ -21,7 +22,7 @@ export default class CropHomeMoreItem extends Component {
 
 class CropHomeMoreItemSubitem extends Component {
     render() {
-        let {title, icon} = this.props.item;
+        let {title, icon, label} = this.props.item;
         const length = title.length;
         // if (length > 4) {
         //     const aa= 'fsdfsd';
@@ -32,6 +33,7 @@ class CropHomeMoreItemSubitem extends Component {
             <div className='crop_home_more_item_subitem' style={{marginBottom:length<=4?20:15}}>
                 <img src={icon} alt="" style={{width:28, height:28}}/>
                 <p className='crop_home_more_item_subitem_title'>{title}</p>
+                <CropFunctionTag label={label}/>
             </div>
         )
     }
