@@ -3,7 +3,7 @@ import React from 'react'
 import './index.css'
 
 export default function CropFunctionTag(props) {
-    const {label} = props;
+    const {label, top} = props;
     if (label == 0) {
         return null
     }
@@ -21,9 +21,9 @@ export default function CropFunctionTag(props) {
         content = '推荐使用';
         color = '#FF7518'
     }
-
+    const width = content.length*12+8;
     return (
-        <p className='crop_item_tag' style={{background: color, }}>
+        <p className='crop_item_tag' style={{background: color, top: top, left: '50%', width:width}}>
             {content}
         </p>
     )

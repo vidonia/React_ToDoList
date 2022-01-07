@@ -25,10 +25,10 @@ class CropHomeMoreItemSubitem extends Component {
         let {title, icon, label} = this.props.item;
         const length = title.length;
         return (
-            <div className='crop_home_more_item_subitem' style={{marginBottom:length<=4?20:15}}>
-                <img src={icon} alt="" style={{width:28, height:28}}/>
-                <p className='crop_home_more_item_subitem_title'>{title}</p>
-                <CropFunctionTag label={label}/>
+            <div className='crop_home_more_item_subitem' style={{marginBottom:length<=5?20:15}}>
+                <img src={icon} alt="" style={{width:28, height:28, marginBottom:4}}/>
+                <span className='crop_home_more_item_subitem_title' style={{width:length<=5?'auto':60}}>{title}</span>
+                <CropFunctionTag label={label} top={-8}/>
             </div>
         )
     }

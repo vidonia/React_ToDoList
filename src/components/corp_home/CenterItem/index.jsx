@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import CropFunctionTag from '../Tag'
 import './index.css'
 
 export default class CropHomeCenterItem extends Component {
@@ -33,6 +34,7 @@ class CropHomeCenterItemSubItem extends Component {
                 <img src={icon} alt="hhhhh" style={{width:64, height:64}}/>
                 <p className='crop_home_center_item_subitem_title'>{title}</p>
                 <p className='crop_home_center_item_subitem_subtitle'>{subTitle}</p>
+                <CropFunctionTag label={2} top={5}/>
             </div>
         );
     }
