@@ -13,3 +13,11 @@
     border-style: solid;
     border-color: white;
 }
+
+.crop_item_img_tag {
+    top: 0px;
+    right: 0px;
+    width: 43px;
+    height: 43px;
+    position: absolute;
+}

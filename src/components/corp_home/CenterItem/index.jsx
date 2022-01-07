@@ -28,13 +28,13 @@ class CropHomeCenterItemSubItem extends Component {
         item: PropTypes.object.isRequired,
     }
     render() {
-        const {title, subTitle, icon} = this.props.item;
+        const {title, subTitle, icon, label} = this.props.item;
         return (
             <div className='crop_home_center_item_subitem'>
                 <img src={icon} alt="hhhhh" style={{width:64, height:64}}/>
                 <p className='crop_home_center_item_subitem_title'>{title}</p>
                 <p className='crop_home_center_item_subitem_subtitle'>{subTitle}</p>
-                <CropFunctionTag label={2} top={5}/>
+                <CropFunctionTag label={label} top={-4}/>    
             </div>
         );
     }

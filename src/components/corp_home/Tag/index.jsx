@@ -1,5 +1,7 @@
 
 import React from 'react'
+
+
 import './index.css'
 
 export default function CropFunctionTag(props) {
@@ -28,3 +30,4 @@ export default function CropFunctionTag(props) {
         </p>
     )
 }
+
