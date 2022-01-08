@@ -8,15 +8,11 @@
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-auto-flow: row;
-    margin-top: 10px;
-    margin-right: 10px;
+    margin: 10px 10px 0 0;
 }
 
 .crop_home_bottom_item_subitem {
-    border-color: #EBEDF0;
-    border-radius: 5px;
-    border-width: 0.5px;
-    border-style: solid;
+    border: 0.5px solid #EBEDF0;
     margin-left: 10px;
     margin-bottom: 10px;
     height: 70px;

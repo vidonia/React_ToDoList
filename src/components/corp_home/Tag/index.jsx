@@ -1,7 +1,5 @@
 
 import React from 'react'
-
-
 import './index.css'
 
 export default function CropFunctionTag(props) {
@@ -23,11 +21,11 @@ export default function CropFunctionTag(props) {
         content = '推荐使用';
         color = '#FF7518'
     }
-    const width = content.length*12+8;
+    const width = content.length * 20;
     return (
-        <p className='crop_item_tag' style={{background: color, top: top, left: '50%', width:width}}>
+        <span className='crop_item_tag' style={{background: color, top: top*2, left: '25%', width: width}}>
             {content}
-        </p>
+        </span>
     )
 }
 

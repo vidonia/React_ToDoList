@@ -6,7 +6,6 @@ import crop_home_header from '../img/crop_home_header.png'
 
 export default class CropHomeHeader extends Component {
     state = {
-        height: "33.6vw",
         bannerList: [],
     };
     componentDidMount() {
@@ -24,7 +23,6 @@ export default class CropHomeHeader extends Component {
                         }
                     });
                     this.setState({
-                        height: 390,
                         bannerList: banners,
                     });
                 }
@@ -37,7 +35,7 @@ export default class CropHomeHeader extends Component {
     render() {
         return (
             <img src={crop_home_header} alt="" 
-            style={{height:this.state.height, backgroundColor: "blue", width: "100%", }}
+            style={{width: '100%'}}
             />
         )
     }

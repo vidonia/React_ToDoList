@@ -1,10 +1,9 @@
 
 .crop_home_body {
     position: absolute;
-    width: 92%;
-    top: 97px;
-    margin-left: 4%;
-    margin-right: 4%;
+    width: 90vw;
+    top: 168px;
+    margin: 0 5vw;
 }
 
 .crop_home_item_title {
